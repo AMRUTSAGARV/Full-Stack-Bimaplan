@@ -1,8 +1,11 @@
 const express = require("express");
-const cors = require("cors");
+const mongoose = require("mongoose");
 const app = express();
-const Role = db.role;
 const db = require("./models");
+const cors = require("cors");
+require("dotenv").config();
+
+const Role = db.role;
 var corsOptions = {
   origin: "http://localhost:8087",
 };
