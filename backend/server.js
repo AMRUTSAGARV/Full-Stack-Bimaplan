@@ -4,6 +4,9 @@ const app = express();
 const db = require("./models");
 const cors = require("cors");
 require("dotenv").config();
+import bodyParser from "body-parser";
+
+import postRoutes from "./routes/posts.js";
 
 const Role = db.role;
 var corsOptions = {
@@ -24,9 +27,14 @@ db.mongoose
     console.error("Connection error", err);
     process.exit();
   });
+
+app.use(bodyParser.json({ limit: "30mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use("/posts", postRoutes);
+
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to bezkoder application." });
 });
