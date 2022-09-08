@@ -10,8 +10,8 @@ import Register from "./components/Register";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
-// import BoardModerator from "./components/BoardModerator";
-// import BoardAdmin from "./components/BoardAdmin";
+import BoardModerator from "./components/BoardModerator";
+import BoardAdmin from "./components/BoardAdmin";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -102,8 +102,8 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/user" element={<BoardUser />} />
-            {/* <Route path="/mod" element={<BoardModerator />} /> */}
-            {/* <Route path="/admin" element={<BoardAdmin />} /> */}
+            <Route path="/mod" element={<BoardModerator />} />
+            <Route path="/admin" element={<BoardAdmin />} />
           </Routes>
         </div>
       </BrowserRouter>
