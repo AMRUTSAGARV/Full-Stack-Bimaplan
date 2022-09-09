@@ -8,11 +8,9 @@ import {
 } from "mdb-react-ui-kit";
 import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
-// import { createPost } from "../../redux/features/PostSlice.js";
-// import { toast } from "react-toastify";
+
 import { useNavigate } from "react-router-dom";
-// import "./AddPost.css";
-// import Header from "../Header.js";
+
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 
 const initialState = {
