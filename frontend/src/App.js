@@ -2,7 +2,6 @@ import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
-
 import "./App.css";
 import AuthService from "./services/auth.service";
 import Login from "./components/Login";
@@ -14,6 +13,7 @@ import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import AddPost from "./components/AddPost/AddPost";
 
 function App() {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
@@ -34,9 +34,10 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
+        <nav className="navbar navbar-expand navbar-dark bg-success">
+          {/* <img alt="logo" className="log" src="/mypic.jpg" /> */}
           <Link to={"/"} className="navbar-brand">
-            bezKoder
+            bimaplan
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
@@ -82,6 +83,11 @@ function App() {
           ) : (
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
+                <Link to={"/post"} className="nav-link">
+                  Add Post
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link to={"/login"} className="nav-link">
                   Login
                 </Link>
@@ -99,6 +105,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/post" element={<AddPost />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/user" element={<BoardUser />} />

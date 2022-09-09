@@ -20,6 +20,7 @@ const Home = () => {
     <div className="container">
       <header className="jumbotron">
         <h3>{content}</h3>
+        <h3>Home Page where all the posts and voting is visible</h3>
       </header>
     </div>
   );
