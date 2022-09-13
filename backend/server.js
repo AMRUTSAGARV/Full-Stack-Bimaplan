@@ -4,9 +4,6 @@ const app = express();
 const db = require("./models");
 const cors = require("cors");
 require("dotenv").config();
-import bodyParser from "body-parser";
-
-import postRoutes from "./routes/posts.js";
 
 const Role = db.role;
 var corsOptions = {
@@ -15,10 +12,13 @@ var corsOptions = {
 // 8087 -> 8081
 // 8086 -> 8080
 db.mongoose
-  .connect(process.env.DB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://BIMAPLAN:BIMAPLAN@cluster0.eq2a1ep.mongodb.net/?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => {
     console.log("Successfully connect to MongoDB.");
     initial();
@@ -27,14 +27,9 @@ db.mongoose
     console.error("Connection error", err);
     process.exit();
   });
-
-app.use(bodyParser.json({ limit: "30mb", extended: true }));
-app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/posts", postRoutes);
-
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to bezkoder application." });
 });
